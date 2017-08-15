@@ -54,11 +54,13 @@ var imgPaths = createSet();
 var elImage1 = document.getElementById('pic1');
 elImage1.setAttribute('src', imgPaths[0]);
 
-var elImage1 = document.getElementById('pic2');
-elImage1.setAttribute('src', imgPaths[1]);
 
-var elImage1 = document.getElementById('pic3');
-elImage1.setAttribute('src', imgPaths[2]);
+
+var elImage2 = document.getElementById('pic2');
+elImage2.setAttribute('src', imgPaths[1]);
+
+var elImage3 = document.getElementById('pic3');
+elImage3.setAttribute('src', imgPaths[2]);
 }
 
 var display = document.getElementById('display');
@@ -66,13 +68,29 @@ display.addEventListener('click', voteHandler);
 
 function voteHandler(event) {
 
+// console.table(images);
+
 console.log(event.target);
 
 var clickedEle = event.target;
 
+    addVote( event.target );
+    displayImage();
 
 console.log('clicked ele id', clickedEle.id);
-displayImage();
+}
+
+// adding a total clicks on images
+
+function addVote( target ){
+    for (var i = 0; i < images.length; i++){
+
+        if ( target.src.match(images[i].url)){
+            images[i].voteCount ++
+
+            console.log(images[i]);
+        }
+    }
 }
 
 displayImage();
