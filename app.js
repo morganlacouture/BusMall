@@ -16,7 +16,7 @@ function instantItems() {
     var banana = new Items(' banana', 'images/banana.jpg', 0, 0, 'banana');
     var bathroom = new Items(' bathroom', 'images/bathroom.jpg', 0, 0, 'bathroom');
     var boots = new Items(' boots', 'images/boots.jpg', 0, 0, 'boots');
-    var bfast = new Items(' breakfast', 'images/breakfast.jpg', 0, 0, 'breakfast');
+    var breakfast = new Items(' breakfast', 'images/breakfast.jpg', 0, 0, 'breakfast');
     var bubblegum = new Items(' bubblegum', 'images/bubblegum.jpg', 0, 0, 'bubblegum');
     var chair = new Items(' chair', 'images/chair.jpg', 0, 0, 'chair');
     var cthulhu = new Items(' cthulhu', 'images/cthulhu.jpg', 0, 0, 'cthulhu');
@@ -33,6 +33,41 @@ function instantItems() {
     var waterCan = new Items(' water-can', 'images/water-can.jpg', 0, 0, 'water-can');
     var wineGlass = new Items(' wine-glass', 'images/wine-glass.jpg', 0, 0, 'wine-glass');
 }
+
+
+instantItems();
+document.getElementById('pic1').setAttribute('src', images[0].url);
+document.getElementById('pic2').setAttribute('src', images[1].url);
+document.getElementById('pic3').setAttribute('src', images[2].url);
+
+// var randomImage = function(){
+//     var numberItem = Math.floor (Math.random() * (allItems.length));
+//     return allItems [numberItem].filePath;
+// }
+
+// var createSet = function(){
+//     var images =[];
+//     images.push (randomImage() );
+//     images.push (randomImage() );
+//     images.push (randomImage() );
+
+// return images; 
+// }
+
+// var displayImage = function() {
+
+//     var elImage1 = document.getElementById ('first');
+//     elImage1.setAttribute ( 'src', randomImage() );
+//      
+//     var elImage2 = document.getElementById ('second');
+//        if (randomImage() === 'first' ){
+//              randomImage()
+// }
+//       else {
+//   
+//}
+// }
+
 
 // var tracker = {
 // // pic1: document.getElementById('pic1'),
@@ -69,11 +104,6 @@ function instantItems() {
 // var restaurant1 = images[index1];
 // var restaurant2 = images[index2];
 // var restaurant3 = images[index3];
-
-instantItems();
-document.getElementById('pic1').setAttribute('src', images[0].url);
-document.getElementById('pic2').setAttribute('src', images[1].url);
-document.getElementById('pic3').setAttribute('src', images[2].url);
     //}
 
 
@@ -106,3 +136,8 @@ document.getElementById('pic3').setAttribute('src', images[2].url);
     // }
 
     // tracker.displayOptions();
+
+
+
+    // add event listener to the parent  HTML element 
+    
