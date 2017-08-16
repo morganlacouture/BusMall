@@ -15,6 +15,8 @@ h2{
 } */
 
 #chart{
-    max-width: 100px;
-    max-height: 100px;
+    margin: 0 auto;
+    max-width: 900px;
+    max-height: 900px;
+    padding: 10%;
 }
