@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Bus Mall</title>
-<link href = "Buss-mall.css" rel = 'stylesheet' type = 'text/css'>
-<script type = 'text/javascript' src = 'Bus-mall.js'></script>
-<style>
-</style>
+    <title id= 'rainbow' >Bus Mall</title>
+
+     <link href="busMall.css" rel='stylesheet' type='text/css'> 
 </head>
+
+
+    <style>
+        img {
+            width: 300px;
+        }
+</style>
+
+<h1>Bus Mall</h1>
+
+<h2>Choose your favorite image</h2>
 <body>
-<section>
-<img id = pic1>
-<img id = pic2>
-<img id = pic3>
+    <section id='display'>
+
+        <img id= 'pic1'>
+
+        <img id= 'pic2'>
+
+        <img id= 'pic3'>
 
     </section>
+    
+    <canvas id = 'chart' height= "100px" width = "100px"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+
+    <script type='text/javascript' src='busMall.js'></script>
 </body>
+
 </html>
