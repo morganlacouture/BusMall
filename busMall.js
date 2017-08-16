@@ -1,35 +1,37 @@
+// Global Variable
 var images = []
 
-function Items(name, url, id) {
+// Object Constructor
+function Item(name, url, id) {
     this.name = name;
     this.url = url;
     this.voteCount = 0;
     this.id = id;
 
-
     images.push(this);
 }
 
-var image1 = new Items(' bag', 'images/bag.jpg', 'bag');
-var image2 = new Items(' banana', 'images/banana.jpg', 'banana');
-var image3 = new Items(' bathroom', 'images/bathroom.jpg', 'bathroom');
-var image4 = new Items(' boots', 'images/boots.jpg', 'boots');
-var image5 = new Items(' breakfast', 'images/breakfast.jpg', 'breakfast');
-var image6 = new Items(' bubblegum', 'images/bubblegum.jpg', 'bubblegum');
-var image7 = new Items(' chair', 'images/chair.jpg', 'chair');
-var image8 = new Items(' cthulhu', 'images/cthulhu.jpg', 'cthulhu');
-var image9 = new Items(' dog-duck', 'images/dog-duck.jpg', 'dog-duck');
-var image10 = new Items(' dragon', 'images/dragon.jpg', 'dragon');
-var image11 = new Items(' pen', 'images/pen.jpg', 'pen');
-var image12 = new Items(' pet-sweep', 'images/pet-sweep.jpg', 'pet-sweep');
-var image13 = new Items(' scissors', 'images/scissors.jpg', 'scissors');
-var image14 = new Items(' shark', 'images/shark.jpg', 'shark');
-var image15 = new Items(' sweep', 'images/sweep.png', 'sweep');
-var image16 = new Items(' tauntaun', 'images/tauntaun.jpg', 'tauntaun');
-var image17 = new Items(' unicorn', 'images/unicorn.jpg', 'unicorn');
-var image18 = new Items(' usb', 'images/usb.gif', 'usb');
-var image19 = new Items(' water-can', 'images/water-can.jpg', 'water-can');
-var image20 = new Items(' wine-glass', 'images/wine-glass.jpg', 'wine-glass');
+// New properties in the object constructor Item
+var bag = new Item(' bag', 'images/bag.jpg', 'bag');
+var banana = new Item(' banana', 'images/banana.jpg', 'banana');
+var bathroom = new Item(' bathroom', 'images/bathroom.jpg', 'bathroom');
+var boots = new Item(' boots', 'images/boots.jpg', 'boots');
+var breakfast = new Item(' breakfast', 'images/breakfast.jpg', 'breakfast');
+var bubblegum = new Item(' bubblegum', 'images/bubblegum.jpg', 'bubblegum');
+var chair = new Item(' chair', 'images/chair.jpg', 'chair');
+var cthulhu = new Item(' cthulhu', 'images/cthulhu.jpg', 'cthulhu');
+var dog = new Item(' dog-duck', 'images/dog-duck.jpg', 'dog-duck');
+var dragon = new Item(' dragon', 'images/dragon.jpg', 'dragon');
+var pen = new Item(' pen', 'images/pen.jpg', 'pen');
+var pet = new Item(' pet-sweep', 'images/pet-sweep.jpg', 'pet-sweep');
+var scissors = new Item(' scissors', 'images/scissors.jpg', 'scissors');
+var shark = new Item(' shark', 'images/shark.jpg', 'shark');
+var sweep = new Item(' sweep', 'images/sweep.png', 'sweep');
+var tauntaun = new Item(' tauntaun', 'images/tauntaun.jpg', 'tauntaun');
+var unicorn = new Item(' unicorn', 'images/unicorn.jpg', 'unicorn');
+var usb = new Item(' usb', 'images/usb.gif', 'usb');
+var water = new Item(' water-can', 'images/water-can.jpg', 'water-can');
+var wine = new Item(' wine-glass', 'images/wine-glass.jpg', 'wine-glass');
 
 var randomImage = function () {
     var numberItem = Math.floor(Math.random() * (images.length));
@@ -54,8 +56,6 @@ var displayImage = function () {
     var elImage1 = document.getElementById('pic1');
     elImage1.setAttribute('src', imgPaths[0]);
 
-
-
     var elImage2 = document.getElementById('pic2');
     elImage2.setAttribute('src', imgPaths[1]);
 
@@ -77,13 +77,7 @@ function voteHandler(event) {
     addVote(event.target);
     displayImage();
 
-    // console.log('clicked ele id', clickedEle.id);
-    // if (this.voteCount > 5 ){
-
-    //     alert( 'Thanks for playing! Ready to see the results?');
-    // }
-        
-    }
+}
 
 
 // adding a total clicks on images
@@ -102,16 +96,18 @@ function addVote(target) {
 
 displayImage();
 
-var chartCanvas = document.getElementById( 'chart' ).getContext('2d');
-var totalChart = new Chart (chartCanvas, { 
-             type: 'bar' , 
-             data: {           
-                  labels : [ 'jan', 'feb', 'march' ] ,
-                  dataset: [
-                      {
-                          label: 'votes',
-                          data: [4,5,6]
-                      }
-                ] 
-             }
+// using chart.js to add a chart of information to page 
+
+var chartCanvas = document.getElementById('chart').getContext('2d');
+var totalChart = new Chart(chartCanvas, {
+    type: 'bar',
+    data: {
+        labels: [images[0]],
+        dataset: [
+            {
+                label: 'votes',
+                data: [4, 5, 6]
+            }
+        ]
+    }
 })
