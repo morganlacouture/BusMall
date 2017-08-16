@@ -77,11 +77,18 @@ function voteHandler(event) {
     addVote(event.target);
     displayImage();
 
-    if (click > 25 ) {
+    if (click > 5 ) {
         chart();
     }
+ 
+    toLS();
+
 }
 
+function toLS (){
+var str = JSON.stringify( images );
+localStorage.setItem( 'image' , str );
+}
 
 // adding a total of clicks on images
 
@@ -102,19 +109,16 @@ displayImage();
 
 // using chart.js to add a chart of information to page 
 
-// make this into a function and call it when click count has reached 25 to display the chart
 function chart() {
     var chartVotes = [];
-    // var emptyNames = [];
+
 
     for (var i = 0; i < images.length; i++){
         chartVotes.push( images[i].voteCount )
 
     }
+ 
 
-    // for( var i = 0; i < name.length; i++){
-    //     emptyNames.push( Items[0])
-    // }
     var chartCanvas = document.getElementById('chart').getContext('2d');
     var totalChart = new Chart(chartCanvas, {
         type: 'bar',
@@ -140,12 +144,26 @@ function chart() {
         }
         
     })
+
 };
 
 
 
 
+// function saveToLs ( key, value ){
+//     var str = JSON.stringify( value );
+//     localStorage.setItem( key, str );
+// }
+// function getFromLs (key){
+//     return JSON.parse( localStorage.getItem(key));
+// }
+// var storedVotes = getFromLs();
+//     if( storedVotes){
 
+//     }
+
+
+//GOALS FOR TODAY
 //save original data when page is reloaded but also add the new info to the graph 
 
 //save product array in local storage 
