@@ -84,11 +84,12 @@ function voteHandler(event) {
     toLS();
 
 }
-
 function toLS (){
 var str = JSON.stringify( images );
 localStorage.setItem( 'image' , str );
 }
+
+JSON.parse( toLS ());
 
 // adding a total of clicks on images
 
