@@ -87,9 +87,9 @@ function voteHandler(event) {
 function toLS (){
 var str = JSON.stringify( images );
 localStorage.setItem( 'image' , str );
+JSON.parse( str );
 }
-
-JSON.parse( toLS ());
+var getLS = parseInt.localStorage.getItem('str');
 
 // adding a total of clicks on images
 
