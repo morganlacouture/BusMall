@@ -1,17 +1,19 @@
 // Global Variable
 var images = []
+var click = 0;
 
 // Object Constructor
 function Item(name, url, id) {
     this.name = name;
     this.url = url;
-    this.voteCount = 0;
     this.id = id;
+    this.voteCount = 0;
 
     images.push(this);
 }
 
-// New properties in the object constructor Item
+// Object instances 
+//on load here 
 var bag = new Item(' bag', 'images/bag.jpg', 'bag');
 var banana = new Item(' banana', 'images/banana.jpg', 'banana');
 var bathroom = new Item(' bathroom', 'images/bathroom.jpg', 'bathroom');
@@ -36,8 +38,8 @@ var wine = new Item(' wine-glass', 'images/wine-glass.jpg', 'wine-glass');
 var randomImage = function () {
     var numberItem = Math.floor(Math.random() * (images.length));
     return images[numberItem].url;
-
 }
+
 var createSet = function () {
     var imageSet = [];
     do {
@@ -67,9 +69,7 @@ var display = document.getElementById('display');
 display.addEventListener('click', voteHandler);
 
 function voteHandler(event) {
-
-    // console.table(images);
-
+   click ++
     console.log(event.target);
 
     var clickedEle = event.target;
@@ -77,20 +77,24 @@ function voteHandler(event) {
     addVote(event.target);
     displayImage();
 
+    if (click > 25 ) {
+        chart();
+    }
 }
 
 
-// adding a total clicks on images
+// adding a total of clicks on images
 
 function addVote(target) {
     for (var i = 0; i < images.length; i++) {
 
+    
         if (target.src.match(images[i].url)) {
             images[i].voteCount++
 
             console.table(images);
-
         }
+
     }
 }
 
@@ -98,16 +102,57 @@ displayImage();
 
 // using chart.js to add a chart of information to page 
 
-var chartCanvas = document.getElementById('chart').getContext('2d');
-var totalChart = new Chart(chartCanvas, {
-    type: 'bar',
-    data: {
-        labels: [images[0]],
-        dataset: [
-            {
-                label: 'votes',
-                data: [4, 5, 6]
-            }
-        ]
+// make this into a function and call it when click count has reached 25 to display the chart
+function chart() {
+    var chartVotes = [];
+    // var emptyNames = [];
+
+    for (var i = 0; i < images.length; i++){
+        chartVotes.push( images[i].voteCount )
+
     }
-})
+
+    // for( var i = 0; i < name.length; i++){
+    //     emptyNames.push( Items[0])
+    // }
+    var chartCanvas = document.getElementById('chart').getContext('2d');
+    var totalChart = new Chart(chartCanvas, {
+        type: 'bar',
+        data: {
+            labels:['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog', 'dragon', 'pen', 'pet',
+        'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water', 'wine'],
+            datasets: [
+                {
+                    label: 'votes',
+                    data: chartVotes,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+
+        }
+        
+    })
+};
+
+
+
+
+
+//save original data when page is reloaded but also add the new info to the graph 
+
+//save product array in local storage 
+
+// save it to the if/else chart statement -- once all 25 votes have been used up 
+
+// line 15--on load -- get localStorage products 
+   // if there -use them to create objects 
+   //otherwise create new objects like the entire like of images 
+// make sure to save to array with all products so it doesn't override the array when the page is reloaded.   
