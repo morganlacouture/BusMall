@@ -69,7 +69,7 @@ var display = document.getElementById('display');
 display.addEventListener('click', voteHandler);
 
 function voteHandler(event) {
-   click ++
+    click++
     console.log(event.target);
 
     var clickedEle = event.target;
@@ -77,20 +77,20 @@ function voteHandler(event) {
     addVote(event.target);
     displayImage();
 
-    if (click > 5 ) {
+    if (click > 25) {
         chart();
     }
- 
+
     toLS();
 
 }
-function toLS (){
-var str = JSON.stringify( images );
-localStorage.setItem( 'image' , str );
-JSON.parse( str );
+function toLS() {
+    var str = JSON.stringify(images);
+    localStorage.setItem('image', str);
+    JSON.parse(str);
 }
 
-function getLs (image){
+function getLs(image) {
     return JSON.parse(localStorage.getItem(image))
 };
 
@@ -99,7 +99,7 @@ function getLs (image){
 function addVote(target) {
     for (var i = 0; i < images.length; i++) {
 
-    
+
         if (target.src.match(images[i].url)) {
             images[i].voteCount++
 
@@ -117,18 +117,18 @@ function chart() {
     var chartVotes = [];
 
 
-    for (var i = 0; i < images.length; i++){
-        chartVotes.push( images[i].voteCount )
+    for (var i = 0; i < images.length; i++) {
+        chartVotes.push(images[i].voteCount)
 
     }
- 
+
 
     var chartCanvas = document.getElementById('chart').getContext('2d');
     var totalChart = new Chart(chartCanvas, {
         type: 'bar',
         data: {
-            labels:['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog', 'dragon', 'pen', 'pet',
-        'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water', 'wine'],
+            labels: ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog', 'dragon', 'pen', 'pet',
+                'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water', 'wine'],
             datasets: [
                 {
                     label: 'votes',
@@ -146,7 +146,7 @@ function chart() {
             }
 
         }
-        
+
     })
 
 };
