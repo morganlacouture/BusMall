@@ -89,7 +89,10 @@ var str = JSON.stringify( images );
 localStorage.setItem( 'image' , str );
 JSON.parse( str );
 }
-var getLS = parseInt.localStorage.getItem('str');
+
+function getLs (image){
+    return JSON.parse(localStorage.getItem(image))
+};
 
 // adding a total of clicks on images
 
