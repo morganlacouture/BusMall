@@ -1,32 +1,32 @@
-/* h1{
-    font-size: 45pt;
-    margin: 0 auto;
+html{
     text-align: center;
-} */
+    padding: 15px;
+}
+
 body{
-    background-color:#D1CCB8;
-    border: 10px dotted black;
-    padding: 15%;
+    background-color: black;
+    border: 10px dotted #DA277F;
+    padding: 5%;
     animation-name: flash;
     animation-duration: 1s;
-     animation-timing-function: linear;
+    animation-timing-function: ease;
     animation-direction: alternate;
     animation-fill-mode: forwards; 
-    animation-iteration-count: infinite;
+    animation-iteration-count: 4;
 }
 @keyframes flash{
     from{
-        border-color: rgba(0,0,0,1);
+        border-color: rgba(218,39,127,1);
     }
     to{
-       border-color: rgba(0,0,0,0);
+       border-color: rgba(218,39,127,0);
     }
 }
 h1{
-  -webkit-box-sizing: content-box;
+   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  padding: 10px;
+  padding: 5px;
   border: none;
   font: normal 60px/1 "Monoton", Helvetica, sans-serif;
   color: rgba(255,255,255,1);
@@ -40,49 +40,41 @@ h1{
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
    transform: rotate(360deg);
    transition: transform 1s ease-in-out;
-}
+} 
 
 h1:hover {
      transform: rotate(0deg);
 
 }
-h1{
+
+ h1{
   text-shadow: 0 0 5px rgb(255,255,255) , 0 0 10px rgb(255,255,255) , 0 0 15px rgb(255,255,255) , 0 0 20px rgb(255,17,119) , 0 0 35px rgb(255,17,119) , 0 0 40px rgb(255,17,119) , 0 0 50px rgb(255,17,119) , 0 0 75px rgb(255,17,119) ;
-}
-
-h2{
-    font-size: 25pt;
-    margin: 0 auto;
-    text-align: center;
-    font-family: 'Zilla Slab Highlight', cursive;
-    padding: 1%;
-}
-
+} 
 
 #chart{
-    margin: 0 auto;
     max-width: 900px;
     max-height: 900px;
     padding: 10%;
+    margin: 0 auto;
+    display: none;
+    background-color: white;
 }
 
-/* #display{
-    margin: 0 auto;
-    padding: 300px;
-} */
-
+#display{
+    display: inline-block;
+}
 #pic1{
-    border: 2px solid black;
+    border: 6px solid #DA277F;
     
 }
 
 #pic2{
-    border: 2px solid black;
+    border: 6px solid #DA277F;
     
 
 }
 
 #pic3{
-    border: 2px solid black;
+    border: 6px solid #DA277F;
     
 }

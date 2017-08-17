@@ -1,8 +1,20 @@
-// Global Variable
+function getLs(image) {
+    return JSON.parse(localStorage.getItem(image))
+};
+
 var images = []
+
+if (!localStorage.image) {
+    instantProducts();
+}
+else {
+    var img = getLs('image');
+    images = img;
+}
+
 var click = 0;
 
-getLs();
+
 
 // Object Constructor
 function Item(name, url, id) {
@@ -14,28 +26,30 @@ function Item(name, url, id) {
     images.push(this);
 }
 
-// Object instances 
-//on load here 
-var bag = new Item(' bag', 'images/bag.jpg', 'bag');
-var banana = new Item(' banana', 'images/banana.jpg', 'banana');
-var bathroom = new Item(' bathroom', 'images/bathroom.jpg', 'bathroom');
-var boots = new Item(' boots', 'images/boots.jpg', 'boots');
-var breakfast = new Item(' breakfast', 'images/breakfast.jpg', 'breakfast');
-var bubblegum = new Item(' bubblegum', 'images/bubblegum.jpg', 'bubblegum');
-var chair = new Item(' chair', 'images/chair.jpg', 'chair');
-var cthulhu = new Item(' cthulhu', 'images/cthulhu.jpg', 'cthulhu');
-var dog = new Item(' dog-duck', 'images/dog-duck.jpg', 'dog-duck');
-var dragon = new Item(' dragon', 'images/dragon.jpg', 'dragon');
-var pen = new Item(' pen', 'images/pen.jpg', 'pen');
-var pet = new Item(' pet-sweep', 'images/pet-sweep.jpg', 'pet-sweep');
-var scissors = new Item(' scissors', 'images/scissors.jpg', 'scissors');
-var shark = new Item(' shark', 'images/shark.jpg', 'shark');
-var sweep = new Item(' sweep', 'images/sweep.png', 'sweep');
-var tauntaun = new Item(' tauntaun', 'images/tauntaun.jpg', 'tauntaun');
-var unicorn = new Item(' unicorn', 'images/unicorn.jpg', 'unicorn');
-var usb = new Item(' usb', 'images/usb.gif', 'usb');
-var water = new Item(' water-can', 'images/water-can.jpg', 'water-can');
-var wine = new Item(' wine-glass', 'images/wine-glass.jpg', 'wine-glass');
+function instantProducts() {
+
+    // Object instances 
+    var bag = new Item(' bag', 'images/bag.jpg', 'bag');
+    var banana = new Item(' banana', 'images/banana.jpg', 'banana');
+    var bathroom = new Item(' bathroom', 'images/bathroom.jpg', 'bathroom');
+    var boots = new Item(' boots', 'images/boots.jpg', 'boots');
+    var breakfast = new Item(' breakfast', 'images/breakfast.jpg', 'breakfast');
+    var bubblegum = new Item(' bubblegum', 'images/bubblegum.jpg', 'bubblegum');
+    var chair = new Item(' chair', 'images/chair.jpg', 'chair');
+    var cthulhu = new Item(' cthulhu', 'images/cthulhu.jpg', 'cthulhu');
+    var dog = new Item(' dog-duck', 'images/dog-duck.jpg', 'dog-duck');
+    var dragon = new Item(' dragon', 'images/dragon.jpg', 'dragon');
+    var pen = new Item(' pen', 'images/pen.jpg', 'pen');
+    var pet = new Item(' pet-sweep', 'images/pet-sweep.jpg', 'pet-sweep');
+    var scissors = new Item(' scissors', 'images/scissors.jpg', 'scissors');
+    var shark = new Item(' shark', 'images/shark.jpg', 'shark');
+    var sweep = new Item(' sweep', 'images/sweep.png', 'sweep');
+    var tauntaun = new Item(' tauntaun', 'images/tauntaun.jpg', 'tauntaun');
+    var unicorn = new Item(' unicorn', 'images/unicorn.jpg', 'unicorn');
+    var usb = new Item(' usb', 'images/usb.gif', 'usb');
+    var water = new Item(' water-can', 'images/water-can.jpg', 'water-can');
+    var wine = new Item(' wine-glass', 'images/wine-glass.jpg', 'wine-glass');
+}
 
 var randomImage = function () {
     var numberItem = Math.floor(Math.random() * (images.length));
@@ -72,29 +86,24 @@ display.addEventListener('click', voteHandler);
 
 function voteHandler(event) {
     click++
-    console.log(event.target);
 
     var clickedEle = event.target;
 
     addVote(event.target);
     displayImage();
 
-    if (click > 2) {
+    if (click > 25) {
         chart();
     }
 
     toLS();
 
 }
+
 function toLS() {
     var str = JSON.stringify(images);
     localStorage.setItem('image', str);
-    JSON.parse(str);
 }
-
-function getLs(image) {
-    return JSON.parse(localStorage.getItem(image))
-};
 
 // adding a total of clicks on images
 
@@ -105,7 +114,6 @@ function addVote(target) {
         if (target.src.match(images[i].url)) {
             images[i].voteCount++
 
-            console.table(images);
         }
 
     }
@@ -135,9 +143,10 @@ function chart() {
                 {
                     label: 'Votes',
                     data: chartVotes,
-                    backgroundColor: ['#5E2838', '#524904', '#164346', '#51F3FC', '#ED9D0C', '#FC7751', '#8400EB', '#844953', 
-                                        '#847561', '#000000', '#CCF400'],
-                                        // TODO NEED TO ADD IN MORE COLORS -TAKING A BREAK TO FINISH READINGS
+                    backgroundColor: ['#5E2838', '#524904', '#164346', '#51F3FC', '#ED9D0C', '#FC7751', '#8400EB', '#844953',
+                        '#847561', '#000000', '#CCF400', '#FFCCB8', '#473934', '#1E1874', '#FF6A18', '#FF6A50', '#FE1F17',
+                        '#8482DD', '#25718D', '#74511E'],
+                    // TODO NEED TO ADD IN MORE COLORS -TAKING A BREAK TO FINISH READINGS
                 }
             ]
         },
@@ -155,31 +164,3 @@ function chart() {
     })
 
 };
-
-
-
-
-// function saveToLs ( key, value ){
-//     var str = JSON.stringify( value );
-//     localStorage.setItem( key, str );
-// }
-// function getFromLs (key){
-//     return JSON.parse( localStorage.getItem(key));
-// }
-// var storedVotes = getFromLs();
-//     if( storedVotes){
-
-//     }
-
-
-//GOALS FOR TODAY
-//save original data when page is reloaded but also add the new info to the graph 
-
-//save product array in local storage 
-
-// save it to the if/else chart statement -- once all 25 votes have been used up 
-
-// line 15--on load -- get localStorage products 
-   // if there -use them to create objects 
-   //otherwise create new objects like the entire like of images 
-// make sure to save to array with all products so it doesn't override the array when the page is reloaded.   
