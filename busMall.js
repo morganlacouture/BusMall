@@ -2,6 +2,8 @@
 var images = []
 var click = 0;
 
+getLs();
+
 // Object Constructor
 function Item(name, url, id) {
     this.name = name;
@@ -77,7 +79,7 @@ function voteHandler(event) {
     addVote(event.target);
     displayImage();
 
-    if (click > 25) {
+    if (click > 2) {
         chart();
     }
 
@@ -131,8 +133,11 @@ function chart() {
                 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water', 'wine'],
             datasets: [
                 {
-                    label: 'votes',
+                    label: 'Votes',
                     data: chartVotes,
+                    backgroundColor: ['#5E2838', '#524904', '#164346', '#51F3FC', '#ED9D0C', '#FC7751', '#8400EB', '#844953', 
+                                        '#847561', '#000000', '#CCF400'],
+                                        // TODO NEED TO ADD IN MORE COLORS -TAKING A BREAK TO FINISH READINGS
                 }
             ]
         },
