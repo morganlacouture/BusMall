@@ -4,14 +4,29 @@
     text-align: center;
 } */
 body{
-    background-color:white;
-    border: 10px double black;
+    background-color:#D1CCB8;
+    border: 10px dotted black;
+    padding: 15%;
+    animation-name: flash;
+    animation-duration: 1s;
+     animation-timing-function: linear;
+    animation-direction: alternate;
+    animation-fill-mode: forwards; 
+    animation-iteration-count: infinite;
+}
+@keyframes flash{
+    from{
+        border-color: rgba(0,0,0,1);
+    }
+    to{
+       border-color: rgba(0,0,0,0);
+    }
 }
 h1{
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  padding: 20px;
+  padding: 10px;
   border: none;
   font: normal 60px/1 "Monoton", Helvetica, sans-serif;
   color: rgba(255,255,255,1);
@@ -40,6 +55,7 @@ h2{
     margin: 0 auto;
     text-align: center;
     font-family: 'Zilla Slab Highlight', cursive;
+    padding: 1%;
 }
 
 
@@ -48,4 +64,25 @@ h2{
     max-width: 900px;
     max-height: 900px;
     padding: 10%;
+}
+
+/* #display{
+    margin: 0 auto;
+    padding: 300px;
+} */
+
+#pic1{
+    border: 2px solid black;
+    
+}
+
+#pic2{
+    border: 2px solid black;
+    
+
+}
+
+#pic3{
+    border: 2px solid black;
+    
 }
