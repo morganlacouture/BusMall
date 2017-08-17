@@ -77,7 +77,7 @@ function voteHandler(event) {
     addVote(event.target);
     displayImage();
 
-    if (click > 5 ) {
+    if (click > 25 ) {
         chart();
     }
  
