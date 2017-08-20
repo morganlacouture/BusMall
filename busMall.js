@@ -96,6 +96,12 @@ function voteHandler(event) {
         chart();
     }
 
+    if ( click > 24 ){
+        alert( 'Thank you for voting!' );
+        chart();
+        display.removeEventListener( 'click', voteHandler, false);
+    }
+    
     toLS();
 
 }
